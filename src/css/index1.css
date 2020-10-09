@@ -46,16 +46,18 @@
     color: #ff6700;
     font-weight: bolder;
 }
+
 .site-topbar .topbar-cart .cart-menu{
     position: absolute; right: 0;
+    background: #fff;
     width: 316px;
     height: 0;
     -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.15);
-    box-shadow: 0 2px 10px rgba(0,0,0,.15);
+    box-shadow: 0 10px 10px rgba(0,0,0,.15);
     overflow: hidden;
     -webkit-transition: height .3s;
     transition: height .3s;
-    z-index: -9999999;
+    z-index: 1;
 }
 .site-topbar .topbar-cart:hover .cart-menu{
     height: 100px;
@@ -93,7 +95,7 @@
 .side-nav{
     height: 100px;
     overflow: hidden; font-size: 14px;
-    z-index: 99999;
+    z-index: 1;
 }
 .nav-logo{
     width: 55px; height: 55px; 
@@ -136,12 +138,18 @@
 .nav-nav ul .nav-item>a:hover{color:#ff6700;}
 .nav-item main{
     height: 0; width: 100%; font-size: 12px;
-    border-bottom: 1px solid lightgrey;
-    box-shadow:  0 2px 10px rgba(0,0,0,.15);
-    display: none;
-    transform: height .2s;
+    border: 1px solid lightgrey;
+    /* display: none; */
+    overflow: hidden;
+    transform: height .3s;
     position: absolute; left: 0;z-index:50;
     color:#757575;background: #fff;
+}
+/*【导航栏】-nav-商品列表：移入动画显示*/
+.nav-item:hover main{
+    /* display:block; */
+    height: 220px;
+    box-shadow:  0px 5px 8px 0px rgba(0,0,0,.15);
 }
 .nav-item main li{
     float: left;
@@ -161,11 +169,7 @@
     line-height: 30px;
     color: #ff6700;
 }
-/*【导航栏】-nav-商品列表：移入动画显示*/
-.nav-nav ul .nav-item:hover main{
-    display:block;
-    height: 220px;
-}
+
 
 
 /*【导航栏】-搜索框*/
@@ -294,19 +298,18 @@
 .children{display: none;}
 .children ul{
     position: absolute; top:-20px; left: 234px;
-    width: 992px;
+    width: 992px; height: 460px; margin: auto;
     background: #fff;
-    border: 1px solid grey;
-    box-shadow: 0 10px 15px 5px grey;
-    opacity: .95;
+    /* border: 1px solid lightgrey; */
+    box-shadow: 5px 5px 10px 0px lightgrey;
 }
 .children ul li{
-    float: left; width: 240px; padding:15px;
-    overflow: hidden;
+    float: left; width: 240px; padding:17px 15px;
+    overflow: hidden;font-weight: normal;
 }
-.children ul li:hover{
+.children ul li:hover a{
     color:#ff6700;
-    background: lightgrey;
+    /* background: lightgrey; */
 }
 .children ul li a img{float: left;}
 .menu-item:hover .children{display: block;}
@@ -356,7 +359,7 @@
 
 
 /*【主要内容】 样式-------------------*/
-main{
+.main{
     width: 100%; 
     /* height: 1000px; */
     background: #F5F5F5;
@@ -365,7 +368,7 @@ main{
 }
 /*【主要内容】-标题、内容-------------------*/
 
-/* main .title{background: pink;}*/
+/* .main .title{background: pink;}*/
 
 .content li{
     border-top: 1px solid orange;
@@ -409,13 +412,13 @@ main{
 }
 
 /*小米抢购 - 商品列表样式*/
-main .title p{
+.main .title p{
     display: inline-block;
     font-size: 22px;
     line-height: 58px;
     color: #333;
 }
-main .title span{
+.main .title span{
     display: inline-block;
     width: 36px; height: 24px;
     padding: 3px 5px;
@@ -433,7 +436,7 @@ main .title span{
     cursor: pointer;
 }
 
-main .content{
+.main .content{
     width: 100%; height: 308px;
     /* overflow: hidden; */
     /* background: pink; */
@@ -483,43 +486,47 @@ main .content{
 
 
 /*main - 手机栏*/
-.cell-phone{
+.temp{
     height: 686px;
     /* background-color: pink; */
 }
-.cell-phone>img{
+.temp>.pic-ban{
     float: left;
     width: 234px; height: 628px;
 }
-.cell-phone .content{
+.household>.pic-ban>img:first-child{margin-bottom: 14px;}
+.temp .content{
     float: left; width: 992px;
 }
-.cell-phone .content li{
+.temp .content li{
+    width: 234px; height: 300px;
     border-top: 0;
     margin-bottom: 14px;
     position: relative;
     transform: top .2s;
 }
-.cell-phone .content li:hover{
+.temp .content li:hover{
     top:-3px;
     box-shadow: 0 5px 15px 2px #b0b0b0;
 }
 
-.cell-phone .look-at-all{
+.temp .look-at-all{
     float: right; position: relative;
     font-size: 16px;
     line-height: 58px;
     color: grey;
     transform: color .2s;
 }
-.cell-phone .look-at-all:hover{color:#ff6700;}
+.temp .look-at-all:hover{color:#ff6700;}
 
-.cell-phone .iconfont{
-    display: inline;
+.temp .iconfont{display: inline;}
+.house-nav{padding-top: 16px; float: right;}
+.house-nav li{
+    line-height: 26px;font-size: 16px; float: left;
+    margin-left: 30px;
 }
-
-
-
+/* .house-nav li:first-child{border-bottom: 2px solid #ff6700;} */
+.house-nav li:hover{ border-bottom: 2px solid #ff6700;}
 
 /*【尾部】 样式*/
 #footer .sale_after a{

@@ -1,3 +1,80 @@
+/*【数据渲染】 */
+;!function($){
+    const tabBox = $('.intelligent .title .tab');
+    const contents = $('.intelligent .content');//4个ul
+
+    $.ajax({
+        url: 'http://localhost/xiaomi/php/piclist.php',
+        dataType: 'json'
+    }).done(function(data){
+        console.log(data); //获取的数据
+        console.log(contents.length);  //4
+        let str='';
+        let i=0,num = 0;
+        $.each(data,function(index,value){ //遍历data对象：将数据内容写入结构中
+            str += `
+                <li>
+                    <img src="${value.url}" alt="${value.title}">
+                    <h3 class="content-title">${value.title}</h3>
+                    <p class="desc">${value.desc}元</p>
+            `;
+            if(value.price === value.org_price){  //是否添加原价删除线
+                str += `
+                    <p class="price">${value.price}元<del>${value.org_price}元</del></p>
+                </li>
+                `;
+            }else{
+                str += `
+                    <p class="price">${value.price}元</p>
+                </li>
+                `;
+            }
+            num++; //累计添加的数据次数
+            if(num!==0 && num%8===0){  //当达到当前ul中li个数（即8）时写入数据，重置str
+                $(contents[i++]).html(str);
+                str='';
+            }
+        });
+
+        $(tabBox).on('mouseover',function(){
+            //为每一个元素都添加类名，选取出当前事件元素的其他兄弟节点，为他们移除类名
+            $(this).addClass('active').siblings('.intelligent .title .tab li').removeClass('active');
+            //获取当前事件元素的下标位置,对应找到要显示的内容块，将其显示并让其他兄弟节点的显示内容隐藏
+            contents.eq($(this).index()).show().siblings('.intelligent .content').hide();
+        });
+        
+    })
+}(jQuery);
+
+//单个tab渲染成功的代码
+// ;!function($){
+//     const tabs = $('.intelligent .title .tab li');
+//     const contents = $('.intelligent .tab-hot');  //第一个tab对应内容元素
+
+//     $.ajax({
+//         url: 'http://localhost/xiaomi/php/piclist.php',
+//         dataType: 'json'
+//     }).done(function(data){
+//         console.log(data);
+//         console.log(contents.length);  //4
+//         console.log(contents);  //第一个ul
+//         let str = '';
+//         $.each(data,function(index,value){ //遍历data对象：将数据内容
+//             str += `
+//                 <li>
+//                     <img src="${value.url}" alt="${value.title}">
+//                     <h3 class="content-title">${value.title}</h3>
+//                     <p class="desc">${value.desc}元</p>
+//                     <p class="price">${value.price}元<del>${value.org_price}元</del></p>
+//                 </li>
+//                 `;
+//         });
+//         contents.html(str);   
+        
+//     })
+// }(jQuery);
+
+//【轮播图】
     //1、获取元素对象
     const view = document.querySelector('.banner-box');
     const banner = document.querySelector('.banner');

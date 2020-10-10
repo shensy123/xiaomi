@@ -14,7 +14,7 @@
 
 <body>
     <!--位置-顶部条-->
-    <header class="site-topbar">
+    <header class="site-topbar" id="header">
         <section class="container">
             <!--顶部条-导航栏-->
             <article class="topbar-nav">  
@@ -56,14 +56,17 @@
             </article>
         </section>
     </header>
+    <!-- 位置-导航栏 -->
     <nav class="side-nav">
         <section class="container">
+            <!-- 导航栏-logo -->
             <article class="nav-logo">
                 <a href="index1.html" title="小米官网" class="logo">
                     <img src="//s02.mifile.cn/assets/static/image/mi-logo.png">
                     <img src="//s02.mifile.cn/assets/static/image/mi-home.png">
                 </a>
             </article>
+            <!-- 导航栏-导航 -->
             <article class="nav-nav">
                 <ul>
                     <li class="nav-item">
@@ -195,12 +198,14 @@
                     </li>
                 </ul>
             </article>
+            <!-- 导航栏-搜索 -->
             <article class="nav-search">
                 <input type="text" name="" id="" placeholder="手机">
                 <button type="button" class="iconfont icon-search"></button>
             </article>
         </section>
     </nav>
+    <!-- 位置-广告图 -->
     <section class="side-banner container">
         <article class="banner-box">
             <!-- 广告图 -->
@@ -222,13 +227,17 @@
                 <li></li>
             </ol>
             <!-- 左右箭头 -->
-            <a href="javascript:;" id="ban-left-arrow" class="arrows">&lt;</a>
-            <a href="javascript:;" id="ban-right-arrow" class="arrows">&gt;</a>
+            <div class="arrow">
+                <a href="javascript:;" id="ban-left-arrow" class="arrows">&lt;</a>
+                <a href="javascript:;" id="ban-right-arrow" class="arrows">&gt;</a>
+            </div>
+            <!-- 广告图-侧边菜单栏 -->
             <aside class="ban-menu">
                 <ul class="menu-list">
                     <li class="menu-item">
                         <p>手机 电话卡</p>
                         <span class="iconfont icon-youjiantou2"></span>
+                        <!-- 选项弹出框 -->
                         <div class="children clearfix">
                             <ul class="children-list clearix">
                                 <li>
@@ -408,8 +417,11 @@
             </ul>
         </article>
     </section>
+    <!-- 商品主体内容 -->
     <main class="main">
         <section class="container">
+
+            <!-- 主题-小米抢购 -->
             <article class="time-limit">
                 <div class="title">
                     <p>小米闪购</p>
@@ -481,6 +493,8 @@
             <article class="pic">
                 <img src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/47addc32aff1d2a84fc4535707190881.jpg?thumb=1&w=1226&h=120&f=webp&q=90">
             </article>
+
+            <!-- 主题-手机 -->
             <article class="cell-phone temp">
                 <div class="title">
                     <p>手机</p>
@@ -542,26 +556,27 @@
                     </li>
                 </div>
             </article>
-            
             <article class="pic">
                 <img src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/c3b86ede4dd31d7c126d56fbdde4f855.jpg?thumb=1&w=1226&h=120&f=webp&q=90">
             </article>
 
+            <!-- 主题-家电 -->
             <article class="household temp">
+                <!-- 家电-标题行 -->
                 <div class="title">
                     <p>家电</p>
-                    <ul class="house-nav">
+                    <ul class="house-nav tab">
                         <li class="hot">热门</li>
                         <li class="tv">电视影音</li>
                     </ul>
                 </div>
-
+                <!-- 内容块-左侧小广告图 -->
                 <div class="pic-ban">
                     <img src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/f256b81e4233333692eece77ed06ebc2.jpg?thumb=1&w=234&h=300&f=webp&q=90" alt="">
                     <img src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/86567ac179a32fa9af05f89a45e57cbe.jpg?thumb=1&w=234&h=300&f=webp&q=90" alt="">
                 </div>
-                
-                <ul class="content cont1">
+                <!-- 内容块-右侧商品 -->
+                <ul class="content tab-cont1">
                     <li>
                         <img src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/3483b4ec83f3d085c567633f2edef1c1.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="日常元素抽纸 青春版 24包/箱">
                         <h3 class="content-title">日常元素抽纸 青春版 24包/箱</h3>
@@ -612,8 +627,42 @@
                     </li>
                 </div>
             </article>
+
+            <article class="pic">
+                <img src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/59e8fc8ba9718c266882719fb4bbcedd.jpg?thumb=1&w=1226&h=120&f=webp&q=90">
+            </article>
+
+            <!-- 主题-智能 -->
+            <article class="intelligent temp">
+                <!-- 智能-标题行 -->
+                <div class="title">
+                    <p>智能</p>
+                    <ul class="house-nav tab">
+                        <li class="hot active">热门</li>
+                        <li class="safe">安防</li>
+                        <li class="trip">出行</li>
+                        <li class="home">家居</li>
+                    </ul>
+                </div>
+                <!-- 内容块-左侧小广告图 -->
+                <div class="pic-ban">
+                    <img src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/45c23f5b9a927b2dc49c25277e07727c.jpg?thumb=1&w=234&h=300&f=webp&q=90" alt="">
+                    <img src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/a660ce095e8f553a9ed1515265f4e9fc.jpg?thumb=1&w=234&h=300&f=webp&q=90" alt="">
+                </div>
+                <!-- 内容块-右侧商品 -->
+                <ul class="content tab-hot active"></ul>
+                <ul class="content tab-safe"></ul>
+                <ul class="content tab-trip"></ul>
+                <ul class="content tab-home"></ul>
+            </article>
         </section>
+
+
+
+
     </main>
+
+    <!-- 尾部 -->
     <footer id="footer">
         <section class="container">
             <div class="sale_after">
@@ -669,9 +718,9 @@
                     <a href="#"><em class="iconfont icon-liwu"></em>人工客服</a>
                     <div class="follow">
                         关注小米：
-                        <a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/wb.png"></a>
+                        <a href="#"><img src=""></a>
                         <a href="#"></a>
-                        <img src="../img/download.png" alt="">
+                        <!-- <img src="../img/download.png" alt=""> -->
                     </div>
                 </div>
             </div>
@@ -739,6 +788,7 @@
             </div>
         </section>
     </footer>
+    <!-- 右侧固定定位选项 -->
     <div id="sideBar">
         <a href="#">
             <p class="iconfont icon-icon"></p><p style="margin-top:55px">手机APP</p>
@@ -754,6 +804,8 @@
         <a href="#header" style="border-bottom: 1px #f5f5f5 solid;"><p class="iconfont icon-dingbu"  style="margin-top:55px"></p><p>回顶部</p></a>
     </div>
 </body>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="./script/index1.js"></script>
 <script src="./script/public.js"></script>
 <script src="./script/footer.js"></script>

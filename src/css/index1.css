@@ -527,27 +527,38 @@
     margin-left: 30px;
 }
 /* .temp .tab li:first-child{border-bottom: 2px solid #ff6700;} */
-.temp .tab li:hover{ border-bottom: 2px solid #ff6700;}
+/* .temp .tab li:hover{ border-bottom: 2px solid #ff6700;} */
 
 /*【尾部】 样式*/
-#footer .sale_after a{
-    font-size: 16px;
-    line-height: 25px;
-    height: 25px;
-    display: inline-block;
-    margin: 0 58px;
-    color: #000;
-}
-#footer .sale_after a:hover{
-    color: tomato;
-}
-#footer .sale_after {
-    color: #999;
+#footer .list_service{
+    height: 80px;
     padding: 27px 0;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #e0e0e0;
+    width: 100%;
 }
+#footer .list_service li{
+    float: left; font-size: 16px;
+    width: 19.8%;line-height: 25px;
+    border-right: 1px solid #999;
+    text-align: center;
+}
+#footer .list_service a{
+    font-size: 16px; vertical-align: middle;
+    color: #999; transition: color .2s;
+}
+
+#footer .list_service a:hover{ color: tomato;}
+
+#footer .list_service li .iconfont{
+    margin-right: 6px;
+    font-size: 24px;
+    line-height: 24px;
+    vertical-align: -4px;
+}
+
+
 #footer .footer-links{
-    padding: 40px 0;
+    padding: 40px 0; height: 252px;
 }
 #footer .footer-links::after{
     content: "";
@@ -617,7 +628,7 @@
     vertical-align: middle;
 }
 #footer .footer-links .col-content .follow a:nth-of-type(1){
-    background: url('https://cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/wb@2x.png') no-repeat ;
+    background: url('https://cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/wb.png') no-repeat ;
     background-size: 24px 24px;
 }
 #footer .footer-links .col-content .follow a:nth-of-type(2){
@@ -639,19 +650,71 @@
     background-size: 24px 24px;
 }
 #footer .footer-links .col-content .follow a:nth-of-type(2):hover{
-    background: url('https://cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/wx.png') no-repeat ;
+    background: url('https://cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/wx@2x.png') no-repeat ;
     background-size: 24px 24px;
 }
-#footer .info-text .sites{
-    color: #000;
-    padding: 34px 0 14px 0;
+
+
+
+
+
+#footer .site-info {
+    padding: 30px 0;
+    font-size: 12px;
+    background: #fafafa;
+    margin-top: 212px;
+    height: 247px;
+
 }
+.site-info .container{position: relative;}
+#footer .site-info .logo {
+    width: 57px; height: 57px;
+    margin-right: 10px;
+    background: url(//s02.mifile.cn/assets/static/image/logo-footer.png) no-repeat 50% 50%;
+    position: absolute; top: 0; left: 0;
+}
+#footer .site-info .ir {
+    display: block; overflow: hidden;
+    text-align: left; text-indent: -9999em;
+}
+#footer .site-info .info-text {
+    padding-left: 67px;
+}
+#footer .site-info .info-text p {
+    margin: 0;
+    line-height: 18px;
+}
+.site-info,.site-info p,.site-info a{
+    color: #b0b0b0;
+}
+.site-info .info-links {
+    height: 28px;
+    margin: 4px 0 15px;
+    padding-left: 67px;
+}
+.site-info .info-links img {
+    width: auto;
+    height: 28px;
+    margin-left: 0;
+} 
+
+/* #footer .info-text .sites{
+    padding: 34px 0 14px 0;
+} */
 #footer .info-text .sites a{
-    font-size: 14px;
-    color: #999;
+    font-size: 12px;
+    /* color: #999; */
     margin: 0 2px;
 }
-#footer .info-text .sites a:hover{
+
+#footer .site-info .slogan {
+    clear: both;
+    margin: 30px auto 0;
+    width: 100%;
+    height: 19px;
+    background: url(https://cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/slogan2020.png) no-repeat center 0;
+}
+/* #footer .info-text .sites a:hover{
     color: tomato;
 }
 #footer .info-text p:nth-last-child(1){
@@ -668,7 +731,7 @@
 }
 #footer .info-links a{
     display: inline-block;
-}
+} */
 
 
 
@@ -698,10 +761,10 @@
     color: #999;
     position: relative;
     text-align: center;
-    border-bottom: 0;
     border-right: 0;
     cursor:default;
 }
+#sideBar .nobottom{border-bottom: none;}
 #sideBar a:hover{
     color: tomato;
 }

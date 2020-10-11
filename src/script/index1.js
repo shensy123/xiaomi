@@ -1,6 +1,6 @@
 /*【数据渲染】 */
 ;!function($){
-    const tabBox = $('.intelligent .title .tab');
+    const tabs = $('.intelligent .title .tab li');
     const contents = $('.intelligent .content');//4个ul
 
     $.ajax({
@@ -14,7 +14,7 @@
         $.each(data,function(index,value){ //遍历data对象：将数据内容写入结构中
             str += `
                 <li>
-                    <img src="${value.url}" alt="${value.title}">
+                    <img class="lazy" data-original="${value.url}" alt="${value.title}">
                     <h3 class="content-title">${value.title}</h3>
                     <p class="desc">${value.desc}元</p>
             `;
@@ -36,13 +36,17 @@
             }
         });
 
-        $(tabBox).on('mouseover',function(){
+        $(tabs).on('mouseover',function(){
             //为每一个元素都添加类名，选取出当前事件元素的其他兄弟节点，为他们移除类名
             $(this).addClass('active').siblings('.intelligent .title .tab li').removeClass('active');
             //获取当前事件元素的下标位置,对应找到要显示的内容块，将其显示并让其他兄弟节点的显示内容隐藏
             contents.eq($(this).index()).show().siblings('.intelligent .content').hide();
         });
-        
+
+        //懒加载效果
+        $("img.lazy").lazyload({
+            effect: "fadeIn" //图片显示方式
+        });
     })
 }(jQuery);
 

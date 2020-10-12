@@ -1,0 +1,9 @@
+@charset "utf-8"; //设置中文字符
+
+/*【版心样式】*/
+.container{width: 1226px; margin: 0 auto;}
+.hide{display: none!important;}
+
+//引入局部文件
+@import "header"; //头部样式
+@import "nav"; //导航栏样式

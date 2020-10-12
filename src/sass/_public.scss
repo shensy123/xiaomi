@@ -1,0 +1,23 @@
+@charset "utf-8"; //设置中文字符
+@mixin borderstyle($size:1px,$style:solid,$color:#fff){
+    border: $size $style $color;
+}
+@mixin move($attrname:transition,$attr:height,$value:3px){
+    -webkit-#{$attrname}:$attr $value;
+    -moz-#{$attrname}:$attr $value;
+    -ms-#{$attrname}:$attr $value;
+    -o-#{$attrname}:$attr $value;
+    #{$attrname}:$attr $value;
+}
+@mixin shadow($attrname:box-shadow,$level:0,$vertical:2,$blur:10,$size:0,$color:grey){
+    -webkit-#{$attrname}:$level $vertical $blur $size $color;
+    -moz-#{$attrname}:$level $vertical $blur $size $color;
+    -ms-#{$attrname}:$level $vertical $blur $size $color;
+    -o-#{$attrname}:$level $vertical $blur $size $color;
+    #{$attrname}:$level $vertical $blur $size $color;
+}
+@mixin typeface($size:12px,$family:"微软雅黑",$weight:none){
+    font-size:$size;
+    font-family:$family;
+    font-weight:$weight;
+}

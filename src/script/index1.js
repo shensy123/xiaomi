@@ -1,4 +1,4 @@
-/*【数据渲染】 */
+/*【数据渲染】-------------------------------------------------------------- */
 ;!function($){
     const tabs = $('.intelligent .title .tab li');
     const contents = $('.intelligent .content');//4个ul
@@ -36,6 +36,7 @@
             }
         });
 
+        //【tab切换】------------------------------------------------------------------
         $(tabs).on('mouseover',function(){
             //为每一个元素都添加类名，选取出当前事件元素的其他兄弟节点，为他们移除类名
             $(this).addClass('active').siblings('.intelligent .title .tab li').removeClass('active');
@@ -43,101 +44,85 @@
             contents.eq($(this).index()).show().siblings('.intelligent .content').hide();
         });
 
-        //懒加载效果
+        //【懒加载效果】---------------------------------------------------------------
         $("img.lazy").lazyload({
             effect: "fadeIn" //图片显示方式
         });
+
+
+
+        //【轮播图】-------------------------------------------------------------------
+        class Lunbo{
+            constructor(){ //构造函数
+                this.lunbo = $('.banner-box');
+                this.images = $('.banner li'); //6张广告图
+                this.btns = $('.ban-btn li');  //6个按钮
+                this.leftArrow = $('#ban-left-arrow');
+                this.rightArrow = $('#ban-right-arrow');
+                this.index = 0;
+                this.timer = null;
+            }
+
+            //初始化：
+            /* 1、移入移出（左右箭头显示/隐藏、移出后设置定时右箭头触发）*/
+            /* 2、小圆圈按钮点击事件（切换banner）*/
+            /* 3、左右箭头点击事件（切换banner）*/
+            /* 4、自动轮播 */
+            init(){
+                let _this=this;
+
+                /* 1、移入移出（左右箭头显示/隐藏、移出后设置定时右箭头触发）*/
+                this.lunbo.hover(function(){
+                    _this.leftArrow.show();
+                    _this.rightArrow.show();
+                    clearInterval(this.timer);
+                    clearInterval(_this.timer);
+                },function(){
+                    _this.leftArrow.hide();
+                    _this.rightArrow.hide();
+                    this.timer = window.setInterval(function(){
+                        _this.rightArrowClick();
+                    },7000);
+                });
+
+                /* 2、小圆圈按钮点击事件（切换banner）*/
+                this.btns.on('click',function(){
+                    _this.index = $(this).index(); //存储当前按下的按钮索引
+                    _this.tabswitch();
+                });
+
+                /* 3、左右箭头点击事件（切换banner）*/
+                this.leftArrow.on('click', function(){
+                    _this.leftArrowClick();
+                });
+                this.rightArrow.on('click', function(){
+                    _this.rightArrowClick();
+                });
+
+                //4、自动轮播：设置定时器3秒调用一次右箭头点击事件
+                this.timer = window.setInterval(function(){
+                    _this.rightArrowClick();
+                    },7000);
+            }
+
+            //当前图片和按钮相关属性变化处理函数：类名激活，对应图片显示
+            tabswitch(){
+                this.btns.eq(this.index).addClass('active').siblings().removeClass('active');
+                this.images.eq(this.index).stop(true).animate({opacity:1})
+                                .siblings().stop(true).animate({opacity:0});
+            }
+
+            //左右箭头按下后的行为：调整到要显示的banner下标，调用显示处理方法
+            leftArrowClick(){
+                this.index>0 ? this.index-- : this.index=this.btns.size()-1;
+                this.tabswitch();
+            }
+            rightArrowClick(){
+                this.index<this.btns.size()-1 ? this.index++ : this.index=0;
+                this.tabswitch();
+            }
+        }
+
+        new Lunbo().init();
     })
 }(jQuery);
-
-//单个tab渲染成功的代码
-// ;!function($){
-//     const tabs = $('.intelligent .title .tab li');
-//     const contents = $('.intelligent .tab-hot');  //第一个tab对应内容元素
-
-//     $.ajax({
-//         url: 'http://localhost/xiaomi/php/piclist.php',
-//         dataType: 'json'
-//     }).done(function(data){
-//         console.log(data);
-//         console.log(contents.length);  //4
-//         console.log(contents);  //第一个ul
-//         let str = '';
-//         $.each(data,function(index,value){ //遍历data对象：将数据内容
-//             str += `
-//                 <li>
-//                     <img src="${value.url}" alt="${value.title}">
-//                     <h3 class="content-title">${value.title}</h3>
-//                     <p class="desc">${value.desc}元</p>
-//                     <p class="price">${value.price}元<del>${value.org_price}元</del></p>
-//                 </li>
-//                 `;
-//         });
-//         contents.html(str);   
-        
-//     })
-// }(jQuery);
-
-//【轮播图】
-    //1、获取元素对象
-    const view = document.querySelector('.banner-box');
-    const banner = document.querySelector('.banner');
-    const images = document.querySelectorAll('.banner li', true); //6张广告图
-    const btn = document.querySelector('.ban-btn');
-    const btns = document.querySelectorAll('.ban-btn li', true);  //6个按钮
-    const leftArrow = document.querySelector('#ban-left-arrow');
-    const rightArrow = document.querySelector('#ban-right-arrow');
-    let num = 0;
-
-    //2、为六个按钮添加事件（鼠标移入）
-    // btn.onmouseover = function(ev){
-    //     var ev = ev || event;
-    //     if(ev.target.nodeName === 'LI'){
-    //         ev.target.className
-    //         console.log(ev.target);
-    //     }
-    // }
-    for(let i=0; i< btns.length; i++){
-        btns[i].onmouseover = function(){
-            num = i;
-            tabswitch(); //当前图片和按钮相关属性变化处理函数
-        }
-    }
-    //当前图片和按钮相关属性变化处理函数：类名激活，对应图片显示
-    function tabswitch(){
-        for(let i=0; i< btns.length; i++){  //其他选项清空
-            btns[i].className = '';
-            bufferMove(images[i], {opacity:0});
-        }
-        btns[num].className = 'active';
-        bufferMove(images[num], {opacity:100});
-    }
-
-    //3、view鼠标移入移出事件：显示左右箭头，移出时定时让右箭头按下事件主动触发
-    view.onmouseover = function(){
-        leftArrow.style.display = 'block';
-        rightArrow.style.display = 'block';
-        clearInterval(timer);
-    }
-    view.onmouseout = function(){
-        leftArrow.style.display = 'none';
-        rightArrow.style.display = 'none';
-        timer = setInterval(() => {
-            rightArrow.onclick();
-        },3000);
-    }
-
-    //4、左右箭头点击事件
-    leftArrow.onclick = function(){
-        num>0 ? num-- : num=btns.length-1;
-        tabswitch();
-    }  
-    rightArrow.onclick = function(){
-        num<btns.length-1 ? num++ : num=0;
-        tabswitch();
-    }
-
-    //5、自动轮播：设置定时器3秒调用一次右箭头点击事件
-    timer = setInterval(() => {
-        rightArrow.onclick();
-    },3000);

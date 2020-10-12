@@ -8,7 +8,7 @@
 .container{
     width: 1226px;
     margin: 0 auto;
-    height:80px;
+    /* height:80px; */
 }
 
 /*【顶部条】-导航栏*/
@@ -37,7 +37,7 @@
     transition: all .2s; */
 }
 
-.site-topbar .topbar-cart .cart:hover{
+.site-topbar .topbar-cart:hover{
     background-color:#fff;
     color: #ff6700;
     font-weight: bolder;
@@ -48,8 +48,8 @@
     background: #fff;
     width: 316px;
     height: 0;
-    -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.15);
-    box-shadow: 0 10px 10px rgba(0,0,0,.15);
+    -webkit-box-shadow: 0 2px 10px 0 rgba(0,0,0,.15);
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,.15);
     overflow: hidden;
     -webkit-transition: height .3s;
     transition: height .3s;
@@ -62,9 +62,9 @@
 .hide {
     display: none!important;
 }
-.site-topbar .cart-menu .msg {
+/* .site-topbar .cart-menu .msg {
     padding: 20px 0 20px;
-}
+} */
 .site-topbar .cart-menu .loading, .site-topbar .cart-menu .msg {
     margin: 0 20px 20px;
     text-align: center;
@@ -90,8 +90,9 @@
 /*【导航栏】-logo*/
 .side-nav{
     height: 100px;
-    overflow: hidden; font-size: 14px;
-    z-index: 1;
+    /* overflow: hidden; */
+    font-size: 14px;
+    /* z-index: 1; */
     background: white;
 }
 .nav-logo{
@@ -102,9 +103,9 @@
     overflow: hidden;
     float: left;
 }
-.logo{width: 55px;height: 55px;text-align: center;}
+/* .logo{text-align: center;} */
 .logo img{
-    width: 55px;height: 55px;
+    width: 100%;height: 100%;
     position: absolute;
     transition: all 0.2s;
 }
@@ -112,7 +113,7 @@
 .logo:hover img:nth-child(2){left: 0px;}
 .logo img:nth-child(1){left: 0;}
 .logo img:nth-child(2){left: -55px;}
-.logo img:nth-child(3){left: 80px;}
+/* .logo img:nth-child(3){left: 80px;} */
 
 /*【导航栏】-nav*/
 .nav-nav{
@@ -123,9 +124,9 @@
 
 .nav-nav ul .nav-item{
     float:left;
-    height: 100%;
+    height: 100%; overflow: hidden;
 }
-.nav-nav ul .nav-item>a{
+.nav-nav ul .nav-item > a{
     display: block;
     padding: 0 10px;
     line-height: 100px;
@@ -135,21 +136,19 @@
 .nav-nav ul .nav-item>a:hover{color:#ff6700;}
 .nav-item main{
     height: 0; width: 100%; font-size: 12px;
-    
-    /* display: none; */
     overflow: hidden;
     transform: height .3s;
+    box-shadow:  0px 5px 5px 0px rgba(0,0,0,.15);
     position: absolute; left: 0;
-    z-index:10;
+    z-index:1;
     color:#757575;background: #fff;
 }
 /*【导航栏】-nav-商品列表：移入动画显示*/
 .nav-item:hover main{
-    border-top: 1px solid lightgrey;
     /* border: 1px none; */
     /* display:block; */
     height: 220px;
-    box-shadow:  0px 5px 5px 0px rgba(0,0,0,.15);
+    border-top: 1px solid lightgrey;
 }
 .nav-item main li{
     float: left;
@@ -450,16 +449,19 @@
 }
 .content li:not(.first){
     margin-left: 14px;
-    padding: 20px 0;
+    padding: 40px 10px;
+}
+.content li:not(.first) img{
+    width: 160px; height: 160px;
 }
 
 .content li h3 {
     display: block;
-    font-size: 1.17em;
+    /* font-size: 1.17em;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-inline-end: 0px; */
     font-weight: bold;
 }
 
@@ -473,9 +475,14 @@
     white-space: nowrap;
 }
 
-.intelligent .content li .desc{color:grey; line-height: 24px;}
-.intelligent .content li .price{color:#ff6700;margin-top:10px;}
-.intelligent .content li del{text-decoration: line-through;color:grey;}
+.temp .content li .desc,.time-limit .content li .desc,.intelligent .content li .desc{
+    color:grey; line-height: 24px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.content li .price{color:#ff6700;margin-top:10px;}
+.time-limit .content li del,.intelligent .content li del{text-decoration: line-through;color:grey;}
 .intelligent .content li img{width: 160px; height: 160px;}
 .intelligent .pic,.intelligent .pic img{
     width: 1226px; height: 120px;
@@ -485,6 +492,7 @@
 .intelligent>.active{display: block;}
 .intelligent .title .tab .active{border-bottom: 2px solid #ff6700;}
 
+.main .pic img{margin: 20px 0;}
 /*main - 手机栏*/
 .temp{
     height: 686px;
@@ -662,7 +670,7 @@
     padding: 30px 0;
     font-size: 12px;
     background: #fafafa;
-    margin-top: 212px;
+    /* margin-top: 212px; */
     height: 247px;
 
 }

@@ -550,6 +550,9 @@
     border-right: 1px solid #999;
     text-align: center;
 }
+#footer .list_service li:last-child{
+    border: 0;
+}
 #footer .list_service a{
     font-size: 16px; vertical-align: middle;
     color: #999; transition: color .2s;

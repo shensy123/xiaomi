@@ -1,0 +1,82 @@
+.page-info{
+    overflow: hidden;
+}
+.login-option{
+    width: 100%; background: #f5f5f5;
+}
+.login-option p{
+    font-size: 14px;
+    text-align: center;
+    line-height: 48px;
+}
+.login-option p a{
+    width: 58px; height: 48px;
+    color: #ff6700;
+    margin-left: 25px;
+}
+
+.product-box{
+    overflow: hidden;
+    padding:32px 0 12px;
+}
+.product-box .pic-left{
+    float: left;
+    width: 606px; height: 560px;
+}
+.product-box .pic-left img{
+    width: 560px; height: 560px;
+}
+
+.product-box .info-right{
+    overflow: hidden;
+    float: left;
+    width: 600px;
+}
+.product-box .info-right h1{
+    font-size: 24px; line-height: 36px;
+    font-weight: normal;
+}
+.product-box .info-right p{
+    font-size: 14px; padding: 7px 0;
+    line-height: 25px;
+}
+.product-box .info-right .desc{
+    color:#b0b0b0;
+}
+.product-box .info-right .orange{
+    color: #ff6700;
+}
+.product-box .info-right .price{
+    font-size: 18px;
+    margin: 12px 0 10px;
+}
+.product-box .info-right .line{
+    margin-top: 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.product-box .info-right button{
+    border:0;
+    width: 300px; height: 54px;
+    background: orangered; 
+    color:white; font-size: 16px; line-height: 54px;
+    /* float: left; */
+    /* display: inline; */
+}
+.buy-box{
+    width: 600px;
+    padding:20px 0;
+    overflow: hidden;
+}
+.product-box .info-right button:hover{
+    background: rgb(216, 71, 14);
+}
+
+.product-box .info-right .buy-box input,.product-box .info-right .buy-box div{
+    width:54px; height: 54px; font-size: 16px;
+    text-align: center; line-height: 56px;
+    margin-right: 20px; float: left;
+    border: 1px solid lightgrey;
+}
+.product-box .info-right .buy-box div{
+    font-size: 32px; color: lightgrey;
+}

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/iconfont.css">
     <link rel="stylesheet" href="./css/index1.css">
-    <link rel="stylesheet" href="./css/list.css">
+    <link rel="stylesheet" href="./css/detail.css">
 </head>
 
 <body>
@@ -209,8 +209,37 @@
 
 
     <!-- 主体部分 -->
-    <main id="details">
+    <main id="page-info">
+        <section class="login-option">
+            <p class="container">
+                <span>为了方便您购买，请提前登录</span>
+                <a href="login.html">立即登录</a>
+                <span class="iconfont icon-guanbi"></span>
+            </p>
+        </section>
+        <section class="product-box">
+            <article class="container">
 
+                <div class="pic-left">
+                    <img src="" alt="">
+                </div>
+
+                <div class="info-right">
+                    <h1 class="title"></h1>
+                    <p class="desc"></p>
+                    <p class="orange">小米自营</p>
+                    <p class="price orange"><span class="number"></span><span>元</span></p>
+                    <div class="line"></div>
+                    <div class="buy-box">
+                        <div class="sub">-</div>
+                        <input type="text" id="count" value="1">
+                        <div class="add">+</div>
+                    </div>
+                    <button class="btn">加入购物车</button>
+                </div>
+
+            </article>
+        </section>
     </main>
 
 
@@ -360,13 +389,14 @@
         <a href="#" class="nobottom"><p class="iconfont icon-geren"></p><p>个人中心</p></a>
         <a href="#" class="nobottom"><p class="iconfont icon-gongju"></p><p>售后服务</p></a>
         <a href="#" class="nobottom"><p class="iconfont icon-kefu"></p><p>人工客服</p></a>
-        <a href="#"><p class="iconfont icon-iconfontcart"></p><p>购物车</p></a>
+        <a href="cart.html"><p class="iconfont icon-iconfontcart"></p><p>购物车</p></a>
         <a href="#header"><p class="iconfont icon-dingbu"></p><p>回顶部</p></a>
     </section>
 </body>
 
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.8.3/jquery.lazyload.min.js"></script>
+<!-- 引入cookie插件 -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.0/jquery.cookie.min.js"></script>
+
 <script src="./script/public.js"></script>
-<script src="./script/jquery.pagination.js"></script>
-<script src="./script/list.js"></script>
+<script src="./script/detail.js"></script>

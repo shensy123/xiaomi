@@ -20,7 +20,7 @@
         let str='';
         $.each(data,function(index,value){ //遍历data对象：将数据内容写入结构中
             str += `
-            <a href="detail.html">
+            <a href="detail.html?sid=${value.sid}">
                 <li class="list-item">
                     <img class="lazy" data-original="${value.url}" alt="${value.title}">
                     <h3 class="content-title">${value.title}</h3>
@@ -84,7 +84,7 @@
                 let str='';
                 $.each(data,function(index,value){ //遍历data对象：将数据内容写入结构中
                     str += `
-                    <a href="detail.html">
+                    <a href="detail.html?sid=${value.sid}">
                         <li class="list-item">
                             <img class="lazy" data-original="${value.url}" alt="${value.title}">
                             <h3 class="content-title">${value.title}</h3>
@@ -139,6 +139,7 @@
     });
     // 升序
     $('.ascending-sort').on('click', function() {
+        console.log('升序点击了');
         for (let i = 0; i < array.length - 1; i++) {
             for (let j = 0; j < array.length - i - 1; j++) {
                 prev = parseFloat(array[j].find('.price em').html()); //取上个价格
@@ -149,29 +150,28 @@
                     let temp = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
-                    // console.log(prev + '>' + next);
                 }
             }
         }
         $('.list').empty(); //清空原来的列表
         $.each(array, function(index, value) {
-            // console.log(value);
             $('.list').append(value);
         });
     });
         
     // 降序
     $('.descending-sort').on('click', function() {
+        console.log('降序点击了');
         for (let i = 0; i < array.length - 1; i++) {
             for (let j = 0; j < array.length - i - 1; j++) {
-                prev = parseFloat(array[j].find('.price').html().substring(1)); //取上个价格
-                next = parseFloat(array[j + 1].find('.price').html().substring(1)); //下一个的价格
+                prev = parseFloat(array[j].find('.price em').html()); //取上个价格
+                next = parseFloat(array[j + 1].find('.price em').html()); //下一个的价格
+                // console.log(parseFloat(array[j].find('.price em').html()));
                 //通过价格的判断，改变的是数组li的位置。
                 if (prev < next) {
                     let temp = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
-                    console.log(prev + '<' + next);
                 }
             }
         }

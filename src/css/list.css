@@ -35,7 +35,6 @@ main h1{
 }
 
 .list{overflow: hidden;}
-
 .list .list-item{
     float: left;
     width: 286px; height: 330px;

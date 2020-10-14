@@ -83,6 +83,7 @@
 }
 .col-check{width: 110px;}
 .col-img{width: 120px;}
+.col-img img{width: 80px; height: 80px; }
 .col-name{width: 380px;}
 .col-price{width: 158px;}
 .col-num{width: 150px;}
@@ -105,11 +106,14 @@
     cursor: pointer;
 }
 
+.cart-goods-list .col-check .no-check{color:lightgrey;background: white; border: 1px solid lightgrey;}
+
 /* 表体 - 列表 */
 .list-body .list-item{
     overflow: hidden; height: 117px; 
     padding: 15px 0; padding-right: 26px;
     border-bottom: 1px solid rgb(232, 232, 232);
+    /* display: none; */
 }
 .list-body .list-item:last-child{border:0;}
 .list-body .list-item .col{
@@ -128,10 +132,33 @@
 .cart-bar{
     width: 100%; overflow: hidden;
     height: 50px; line-height: 50px;
+    background: white; margin-top: 20px;
+    font-size: 14px;
 }
 .cart-bar .orange{color:#ff6700;}
+
+/* 总数 */
 .cart-bar .sum-total{
-    float: left;
+    float: left; margin-left: 32px;
 }
 .cart-bar .sum-total .left{float: left; color:#757575;}
 .cart-bar .right{float: right;}
+
+/* 合计总价 */
+.cart-bar .total-price .price{
+    font-size: 30px;
+    line-height: 42px;
+}
+
+/* 结算按钮 */
+.cart-bar button.to-pay{
+    display: block; background: #ff6700;
+    width: 200px; height: 50px; margin-left: 50px;
+    border:1px solid #ff6700; 
+    font-size: 18px; color: white;
+    
+}
+.cart-bar button.to-pay:hover{
+    transition: background 1s;
+    background:#e74513;
+}

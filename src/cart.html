@@ -66,7 +66,7 @@
 
                 <!-- 列表头 -->
                 <div class="list-head">
-                    <div class="col col-check"><i class="check">✔</i>全选</div>
+                    <div class="col col-check"><i class="check checked all">✔</i>全选</div>
                     <div class="col col-img"></div>
                     <div class="col col-name">商品名称</div>
                     <div class="col col-price">单价</div>
@@ -77,38 +77,15 @@
 
                 <!-- 列表体 -->
                 <ul class="list-body">
-                    <li class="list-item">
-                        <div class="col col-check"><i class="check">✔</i></div>
+                    <li class="list-item" style="display: none;">
+                        <div class="col col-check"><i class="check checked">✔</i></div>
                         <div class="col col-img">
-                            <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1582861165.44279272.jpg?thumb=1&w=80&h=80" alt="">
+                            <img src="" alt="">
                         </div>
-                        <div class="col col-name">小米小背包 黑色 20L</div>
-                        <div class="col col-price"><span class="num">49</span>元</div>
-                        <div class="col col-num">数量</div>
-                        <div class="col col-total"><span class="num">49</span>元</div>
-                        <div class="col col-action"><span>×</span></div>
-                    </li>
-                    
-                    <li class="list-item">
-                        <div class="col col-check"><i class="check">✔</i></div>
-                        <div class="col col-img">
-                            <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1582861165.44279272.jpg?thumb=1&w=80&h=80" alt="">
-                        </div>
-                        <div class="col col-name">小米小背包 黑色 20L</div>
-                        <div class="col col-price"><span class="num">49</span>元</div>
-                        <div class="col col-num">数量</div>
-                        <div class="col col-total"><span class="num">49</span>元</div>
-                        <div class="col col-action"><span>×</span></div>
-                    </li>
-                    <li class="list-item">
-                        <div class="col col-check"><i class="check">✔</i></div>
-                        <div class="col col-img">
-                            <img src="//cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1582861165.44279272.jpg?thumb=1&w=80&h=80" alt="">
-                        </div>
-                        <div class="col col-name">小米小背包 黑色 20L</div>
-                        <div class="col col-price"><span class="num">49</span>元</div>
-                        <div class="col col-num">数量</div>
-                        <div class="col col-total"><span class="num">49</span>元</div>
+                        <a class="col col-name">商品名称</a>
+                        <div class="col col-price"><span class="num">0</span>元</div>
+                        <div class="col col-num">0</div>
+                        <div class="col col-total"><span class="num">0</span>元</div>
                         <div class="col col-action"><span>×</span></div>
                     </li>
                 </ul>
@@ -120,12 +97,14 @@
                     <a href="list.html" class="left">继续购物</a>
                     <span class="sep left">|</span>
                     <p class="left">
-                        共<i class="in-total orange">4</i>件商品，已选择
-                        <span class="selected orange">2</span>件
+                        共<i class="in-total orange">0</i>件商品，
+                        已选择<span class="selected orange">0</span>件
                     </p>
                 </div>
                 <button class="to-pay right">去结算</button>
-                <div class="total-price orange right">合计：<em class="">99*4</em></div>
+                <div class="total-price orange right">
+                    合计：<span class="price">0</span>元
+                </div>
             </article>
         </section>
     </main>
@@ -287,4 +266,5 @@
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.0/jquery.cookie.min.js"></script>
 
 <script src="./script/public.js"></script>
+<script src="./script/jscookie.js"></script>
 <script src="./script/cart.js"></script>
